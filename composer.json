@@ -1,0 +1,30 @@
+{
+    "name": "moovly/recurly",
+    "type":        "library",
+    "description": "Recurly API PHP Client",
+    "keywords":    ["recurly"],
+    "homepage":    "https://github.com/Moovly/Recurly",
+    "license":     "MIT",
+    "authors": [
+        {
+            "name": "The Moovly Team",
+            "homepage": "https://github.com/Moovly"
+        },
+        {
+            "name": "Bram Van der Sype",
+            "homepage": "https://github.com/Brammm"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0",
+        "jms/serializer": "master-dev"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "3.7.*"
+    },
+    "autoload": {
+        "psr-0": {
+            "Recurly": "lib/"
+        }
+    }
+}
