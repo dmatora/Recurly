@@ -2,7 +2,7 @@
 
 namespace Recurly\Model;
 
-class Subscription extends Model
+class Subscription implements ModelInterface
 {
     /** @var Plan */
     protected $plan;
