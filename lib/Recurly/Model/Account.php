@@ -2,93 +2,79 @@
 
 namespace Recurly\Model;
 
-use JMS\Serializer\Annotation as JMS;
-
-class Account
+class Account implements ModelInterface
 {
-    /**
-     * @var string
-     *
-     * @JMS\Type("string")
-     */
+    /** @var string */
     protected $account_code;
-
-    /**
-     * @var string
-     *
-     * @JMS\Type("string")
-     */
+    /** @var string */
     protected $state;
-
-    /**
-     * @var string
-     *
-     * @JMS\Type("string")
-     */
+    /** @var string */
     protected $username;
-
-    /**
-     * @var string
-     *
-     * @JMS\Type("string")
-     */
+    /** @var string */
     protected $email;
-
-    /**
-     * @var string
-     *
-     * @JMS\Type("string")
-     */
+    /** @var string */
     protected $first_name;
-
-    /**
-     * @var string
-     *
-     * @JMS\Type("string")
-     */
+    /** @var string */
     protected $last_name;
-
-    /**
-     * @var string
-     *
-     * @JMS\Type("string")
-     */
+    /** @var string  */
     protected $company_name;
-
-    /**
-     * @var string
-     *
-     * @JMS\Type("string")
-     */
+    /** @var string */
     protected $vat_number;
-
-    /**
-     * @var Address
-     *
-     * @JMS\Type("Recurly\Model\Address")
-     */
+    /** @var Address */
     protected $address;
-
-    /**
-     * @var string
-     *
-     * @JMS\Type("string")
-     */
+    /** @var string */
     protected $accept_language;
-
-    /**
-     * @var string
-     *
-     * @JMS\Type("string")
-     */
+    /** @var string */
     protected $hosted_login_token;
+    /** @var \DateTime */
+    protected $created_at;
 
     /**
-     * @var \DateTime
+     * Returns a mapping
      *
-     * @JMS\Type("DateTime")
+     * @return array
      */
-    protected $created_at;
+    public function getMapping()
+    {
+        return [
+            'account_code' => [
+                'type' => 'string',
+            ],
+            'state' => [
+                'type' => 'string',
+            ],
+            'username' => [
+                'type' => 'string',
+            ],
+            'email' => [
+                'type' => 'string',
+            ],
+            'first_name' => [
+                'type' => 'string',
+            ],
+            'last_name' => [
+                'type' => 'string',
+            ],
+            'company_name' => [
+                'type' => 'string',
+            ],
+            'vat_number' => [
+                'type' => 'string',
+            ],
+            'address' => [
+                'type' => 'Recurly\Model\Address',
+            ],
+            'accept_language' => [
+                'type' => 'string',
+            ],
+            'hosted_login_token' => [
+                'type' => 'string',
+            ],
+            'created_at' => [
+                'type' => 'datetime',
+            ],
+        ];
+    }
 
     /**
      * @param string $accept_language
@@ -126,6 +112,25 @@ class Account
     public function getAccountCode()
     {
         return $this->account_code;
+    }
+
+    /**
+     * @param \Recurly\Model\Address $address
+     *
+     * @return $this
+     */
+    public function setAddress($address)
+    {
+        $this->address = $address;
+        return $this;
+    }
+
+    /**
+     * @return \Recurly\Model\Address
+     */
+    public function getAddress()
+    {
+        return $this->address;
     }
 
     /**
@@ -300,4 +305,4 @@ class Account
     }
 
 
-} 
+}

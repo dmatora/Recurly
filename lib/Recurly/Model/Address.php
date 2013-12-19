@@ -2,58 +2,54 @@
 
 namespace Recurly\Model;
 
-use JMS\Serializer\Annotation as JMS;
-
-class Address 
+class Address implements ModelInterface
 {
-    /**
-     * @var string
-     *
-     * @JMS\Type("string")
-     */
+    /** @var string */
     protected $address1;
-
-    /**
-     * @var string
-     *
-     * @JMS\Type("string")
-     */
+    /** @var string */
     protected $address2;
-
-    /**
-     * @var string
-     *
-     * @JMS\Type("string")
-     */
+    /** @var string */
     protected $city;
-
-    /**
-     * @var string
-     *
-     * @JMS\Type("string")
-     */
+    /** @var string */
     protected $state;
-
-    /**
-     * @var string
-     *
-     * @JMS\Type("string")
-     */
+    /** @var string */
     protected $zip;
-
-    /**
-     * @var string
-     *
-     * @JMS\Type("string")
-     */
+    /** @var string */
     protected $country;
+    /** @var string */
+    protected $phone;
 
     /**
-     * @var string
+     * Returns a mapping
      *
-     * @JMS\Type("string")
+     * @return array
      */
-    protected $phone;
+    public function getMapping()
+    {
+        return [
+            'address1' => [
+                'type' => 'string',
+            ],
+            'address2' => [
+                'type' => 'string',
+            ],
+            'city' => [
+                'type' => 'string',
+            ],
+            'state' => [
+                'type' => 'string',
+            ],
+            'zip' => [
+                'type' => 'string',
+            ],
+            'country' => [
+                'type' => 'string',
+            ],
+            'phone' => [
+                'type' => 'string',
+            ],
+        ];
+    }
 
     /**
      * @param string $address1
@@ -187,6 +183,7 @@ class Address
     {
         return $this->zip;
     }
+
 
 
 } 

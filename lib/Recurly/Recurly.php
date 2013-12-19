@@ -2,12 +2,11 @@
 
 namespace Recurly;
 
-use JMS\Serializer\Handler\HandlerRegistry;
-use JMS\Serializer\SerializerBuilder;
-use JMS\Serializer\SerializerInterface;
-use Recurly\Resource\Account;
+use Recurly\Resource\Accounts;
+use Recurly\Resource\Coupons;
+use Recurly\Resource\Js;
+use Recurly\Resource\Subscriptions;
 use Recurly\Util\Client;
-use Recurly\Util\HandlerSubscriber;
 
 /**
  * Class Recurly
@@ -17,33 +16,31 @@ use Recurly\Util\HandlerSubscriber;
  */
 class Recurly
 {
-    /** @var string */
-    protected $subdomain;
-    /** @var string */
-    protected $apiKey;
-    /** @var SerializerInterface */
-    protected $serializer;
-
-    /** @var Account */
+    /** @var Accounts */
     public $accounts;
+    /** @var Coupons */
+    public $coupons;
+    /** @var Js */
+    public $js;
+    /** @var Subscriptions */
+    public $subscriptions;
 
     /**
      * Sets up the library's dependencies
+     * Creates the public resources
      *
      * @param string $subdomain
      * @param string $apiKey
+     * @param string $privateKey
      */
-    public function __construct($subdomain, $apiKey)
+    public function __construct($subdomain, $apiKey, $privateKey = null)
     {
         $client = new Client($subdomain, $apiKey);
 
-        $builder = SerializerBuilder::create();
-        $builder->configureHandlers(function(HandlerRegistry $registry) {
-            $registry->registerSubscribingHandler(new HandlerSubscriber());
-        });
-        $serializer = $builder->build();
-
-        $this->accounts = new Account($client, $serializer);
+        $this->accounts      = new Accounts($client);
+        $this->coupons       = new Coupons($client);
+        $this->js            = new Js($client, $privateKey);
+        $this->subscriptions = new Subscriptions($client);
     }
 
 } 
