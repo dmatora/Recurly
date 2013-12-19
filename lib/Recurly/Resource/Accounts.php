@@ -2,7 +2,7 @@
 
 namespace Recurly\Resource;
 
-use \Recurly\Model\Account as AccountModel;
+use \Recurly\Model\Account;
 
 class Accounts extends Resource
 {
@@ -38,11 +38,11 @@ class Accounts extends Resource
     /**
      * Gets the billing info for a specified account
      *
-     * @param AccountModel $account
+     * @param Account $account
      *
      * @return \Recurly\Model\BillingInfo
      */
-    public function getBillingInfo(AccountModel $account)
+    public function getBillingInfo(Account $account)
     {
         $suffix  = sprintf('accounts/%s/billing_info', $account->getAccountCode());
         $context = 'Recurly\Model\BillingInfo';
