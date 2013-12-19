@@ -165,7 +165,7 @@ class DeserializeVisitor extends Visitor
                 }
                 return $model;
             } else {
-                throw new \InvalidArgumentException(sprintf('"%s" is not an instance of Recurly\Model\Model', $classPath));
+                throw new \InvalidArgumentException(sprintf('"%s" does not implement Recurly\Model\ModelInterface', $classPath));
             }
         } else {
             throw new \InvalidArgumentException(sprintf('"%s" is not a class', $classPath));
