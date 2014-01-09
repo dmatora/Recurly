@@ -10,7 +10,7 @@ class Subscription implements ModelInterface
     protected $uuid;
     /** @var string */
     protected $state;
-    /** @var string */
+    /** @var int */
     protected $unit_amount_in_cents;
     /** @var string */
     protected $currency;
@@ -339,7 +339,7 @@ class Subscription implements ModelInterface
     }
 
     /**
-     * @param string $unit_amount_in_cents
+     * @param int $unit_amount_in_cents
      *
      * @return $this
      */
@@ -350,11 +350,11 @@ class Subscription implements ModelInterface
     }
 
     /**
-     * @return string
+     * @return int
      */
     public function getUnitAmountInCents()
     {
-        return $this->unit_amount_in_cents;
+        return (int) $this->unit_amount_in_cents;
     }
 
     /**
