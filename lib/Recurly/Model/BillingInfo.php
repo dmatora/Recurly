@@ -2,7 +2,7 @@
 
 namespace Recurly\Model;
 
-class BillingInfo extends Model
+class BillingInfo implements ModelInterface
 {
     /** @var string */
     protected $first_name;
