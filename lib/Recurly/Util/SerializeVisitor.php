@@ -28,7 +28,7 @@ class SerializeVisitor extends Visitor
         $this->dom->appendChild($root);
 
         $mapping = $model->getMapping();
-        foreach ($mapping as $variable => $options) {
+        foreach ($mapping['attributes'] as $variable => $options) {
             $value = call_user_func(
                 [
                     $model,

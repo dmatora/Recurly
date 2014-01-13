@@ -49,59 +49,61 @@ class BillingInfo implements ModelInterface
     public function getMapping()
     {
         return [
-            'first_name' => [
-                'type' => 'string',
-            ],
-            'last_name' => [
-                'type' => 'string',
-            ],
-            'company' => [
-                'type' => 'string',
-            ],
-            'address1' => [
-                'type' => 'string',
-            ],
-            'address2' => [
-                'type' => 'string',
-            ],
-            'city' => [
-                'type' => 'string',
-            ],
-            'state' => [
-                'type' => 'string',
-            ],
-            'zip' => [
-                'type' => 'string',
-            ],
-            'country' => [
-                'type' => 'string',
-            ],
-            'phone' => [
-                'type' => 'string',
-            ],
-            'vat_number' => [
-                'type' => 'string',
-            ],
-            'ip_address' => [
-                'type' => 'string',
-            ],
-            'ip_address_country' => [
-                'type' => 'string',
-            ],
-            'card_type' => [
-                'type' => 'string',
-            ],
-            'year' => [
-                'type' => 'integer',
-            ],
-            'month' => [
-                'type' => 'integer',
-            ],
-            'first_six' => [
-                'type' => 'string',
-            ],
-            'last_four' => [
-                'type' => 'string',
+            'attributes' => [
+                'first_name' => [
+                    'type' => 'string',
+                ],
+                'last_name' => [
+                    'type' => 'string',
+                ],
+                'company' => [
+                    'type' => 'string',
+                ],
+                'address1' => [
+                    'type' => 'string',
+                ],
+                'address2' => [
+                    'type' => 'string',
+                ],
+                'city' => [
+                    'type' => 'string',
+                ],
+                'state' => [
+                    'type' => 'string',
+                ],
+                'zip' => [
+                    'type' => 'string',
+                ],
+                'country' => [
+                    'type' => 'string',
+                ],
+                'phone' => [
+                    'type' => 'string',
+                ],
+                'vat_number' => [
+                    'type' => 'string',
+                ],
+                'ip_address' => [
+                    'type' => 'string',
+                ],
+                'ip_address_country' => [
+                    'type' => 'string',
+                ],
+                'card_type' => [
+                    'type' => 'string',
+                ],
+                'year' => [
+                    'type' => 'integer',
+                ],
+                'month' => [
+                    'type' => 'integer',
+                ],
+                'first_six' => [
+                    'type' => 'string',
+                ],
+                'last_four' => [
+                    'type' => 'string',
+                ],
             ],
         ];
     }

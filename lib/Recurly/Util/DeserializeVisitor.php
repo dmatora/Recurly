@@ -153,7 +153,7 @@ class DeserializeVisitor extends Visitor
 
                 // loop over the mapping
                 // for every mapped field, get a value
-                foreach ($mapping as $variable => $opts) {
+                foreach ($mapping['attributes'] as $variable => $opts) {
                     // Call the Model setter and set the value
                     call_user_func(
                         [

@@ -37,41 +37,43 @@ class Account implements ModelInterface
     public function getMapping()
     {
         return [
-            'account_code' => [
-                'type' => 'string',
-            ],
-            'state' => [
-                'type' => 'string',
-            ],
-            'username' => [
-                'type' => 'string',
-            ],
-            'email' => [
-                'type' => 'string',
-            ],
-            'first_name' => [
-                'type' => 'string',
-            ],
-            'last_name' => [
-                'type' => 'string',
-            ],
-            'company_name' => [
-                'type' => 'string',
-            ],
-            'vat_number' => [
-                'type' => 'string',
-            ],
-            'address' => [
-                'type' => 'Recurly\Model\Address',
-            ],
-            'accept_language' => [
-                'type' => 'string',
-            ],
-            'hosted_login_token' => [
-                'type' => 'string',
-            ],
-            'created_at' => [
-                'type' => 'datetime',
+            'attributes' => [
+                'account_code' => [
+                    'type' => 'string',
+                ],
+                'state' => [
+                    'type' => 'string',
+                ],
+                'username' => [
+                    'type' => 'string',
+                ],
+                'email' => [
+                    'type' => 'string',
+                ],
+                'first_name' => [
+                    'type' => 'string',
+                ],
+                'last_name' => [
+                    'type' => 'string',
+                ],
+                'company_name' => [
+                    'type' => 'string',
+                ],
+                'vat_number' => [
+                    'type' => 'string',
+                ],
+                'address' => [
+                    'type' => 'Recurly\Model\Address',
+                ],
+                'accept_language' => [
+                    'type' => 'string',
+                ],
+                'hosted_login_token' => [
+                    'type' => 'string',
+                ],
+                'created_at' => [
+                    'type' => 'datetime',
+                ],
             ],
         ];
     }

@@ -27,26 +27,28 @@ class Address implements ModelInterface
     public function getMapping()
     {
         return [
-            'address1' => [
-                'type' => 'string',
-            ],
-            'address2' => [
-                'type' => 'string',
-            ],
-            'city' => [
-                'type' => 'string',
-            ],
-            'state' => [
-                'type' => 'string',
-            ],
-            'zip' => [
-                'type' => 'string',
-            ],
-            'country' => [
-                'type' => 'string',
-            ],
-            'phone' => [
-                'type' => 'string',
+            'attributes' => [
+                'address1' => [
+                    'type' => 'string',
+                ],
+                'address2' => [
+                    'type' => 'string',
+                ],
+                'city' => [
+                    'type' => 'string',
+                ],
+                'state' => [
+                    'type' => 'string',
+                ],
+                'zip' => [
+                    'type' => 'string',
+                ],
+                'country' => [
+                    'type' => 'string',
+                ],
+                'phone' => [
+                    'type' => 'string',
+                ],
             ],
         ];
     }

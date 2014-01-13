@@ -43,51 +43,53 @@ class Coupon implements ModelInterface
     public function getMapping()
     {
         return [
-            'coupon_code' => [
-                'type' => 'string',
-            ],
-            'name' => [
-                'type' => 'string',
-            ],
-            'state' => [
-                'type' => 'string',
-            ],
-            'hosted_description' => [
-                'type' => 'string',
-            ],
-            'invoice_description' => [
-                'type' => 'string',
-            ],
-            'discount_type' => [
-                'type' => 'string',
-            ],
-            'discount_percent' => [
-                'type' => 'integer',
-            ],
-            'discount_in_cents' => [
-                'type' => 'assocArray<integer>',
-            ],
-            'redeem_by_date' => [
-                'type' => 'datetime',
-            ],
-            'single_use' => [
-                'type' => 'boolean',
-            ],
-            'applies_for_months' => [
-                'type' => 'string',
-            ],
-            'max_redemptions' => [
-                'type' => 'string',
-            ],
-            'applies_to_all_plans' => [
-                'type' => 'boolean',
-            ],
-            'created_at' => [
-                'type' => 'datetime',
-            ],
-            'plan_codes' => [
-                'type' => 'array<string>',
-                'key'  => 'plan_code',
+            'attributes' => [
+                'coupon_code' => [
+                    'type' => 'string',
+                ],
+                'name' => [
+                    'type' => 'string',
+                ],
+                'state' => [
+                    'type' => 'string',
+                ],
+                'hosted_description' => [
+                    'type' => 'string',
+                ],
+                'invoice_description' => [
+                    'type' => 'string',
+                ],
+                'discount_type' => [
+                    'type' => 'string',
+                ],
+                'discount_percent' => [
+                    'type' => 'integer',
+                ],
+                'discount_in_cents' => [
+                    'type' => 'assocArray<integer>',
+                ],
+                'redeem_by_date' => [
+                    'type' => 'datetime',
+                ],
+                'single_use' => [
+                    'type' => 'boolean',
+                ],
+                'applies_for_months' => [
+                    'type' => 'string',
+                ],
+                'max_redemptions' => [
+                    'type' => 'string',
+                ],
+                'applies_to_all_plans' => [
+                    'type' => 'boolean',
+                ],
+                'created_at' => [
+                    'type' => 'datetime',
+                ],
+                'plan_codes' => [
+                    'type' => 'array<string>',
+                    'key'  => 'plan_code',
+                ],
             ],
         ];
     }
