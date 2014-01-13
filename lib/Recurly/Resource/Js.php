@@ -59,6 +59,6 @@ class Js extends Resource
                 throw new \InvalidArgumentException('Type not supported');
         }
 
-        return $this->_get($suffix, $context);
+        return $this->apiGet($suffix, $context);
     }
 } 

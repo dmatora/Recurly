@@ -28,7 +28,7 @@ abstract class Resource
      *
      * @return mixed
      */
-    protected function _get($suffix, $context)
+    protected function apiGet($suffix, $context)
     {
         return $this->serializer->deserialize(
             $this->client->get($suffix),
@@ -44,7 +44,7 @@ abstract class Resource
      *
      * @return bool
      */
-    protected function _post($suffix, ModelInterface $model)
+    protected function apiPost($suffix, ModelInterface $model)
     {
         $xml = $this->serializer->serialize($model);
         $this->client->post($suffix, $xml);

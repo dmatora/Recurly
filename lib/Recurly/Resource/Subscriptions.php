@@ -15,7 +15,7 @@ class Subscriptions extends Resource
         $suffix  = 'subscriptions';
         $context = 'array<Recurly\Model\Subscription>';
 
-        return $this->_get($suffix, $context);
+        return $this->apiGet($suffix, $context);
     }
 
     /**
@@ -30,6 +30,6 @@ class Subscriptions extends Resource
         $suffix  = sprintf('subscriptions/%s', $id);
         $context = 'Recurly\Model\Subscription';
 
-        return $this->_get($suffix, $context);
+        return $this->apiGet($suffix, $context);
     }
 } 
