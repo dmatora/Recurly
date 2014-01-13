@@ -28,12 +28,15 @@ abstract class Resource
      *
      * @return mixed
      */
-    protected function apiGet($suffix, $context)
+    protected function apiGet($suffix, $context = null)
     {
-        return $this->serializer->deserialize(
-            $this->client->get($suffix),
-            $context
-        );
+        $response = $this->client->get($suffix);
+
+        if (null !== $context) {
+            return $this->serializer->deserialize($response, $context);
+        }
+        
+        return $response;
     }
 
     /**
