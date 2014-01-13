@@ -28,6 +28,8 @@ class Account implements ModelInterface
     protected $hosted_login_token;
     /** @var \DateTime */
     protected $created_at;
+    /** @var BillingInfo */
+    protected $billing_info;
 
     /**
      * Returns a mapping
@@ -133,6 +135,25 @@ class Account implements ModelInterface
     public function getAddress()
     {
         return $this->address;
+    }
+
+    /**
+     * @param \Recurly\Model\BillingInfo $billing_info
+     *
+     * @return $this
+     */
+    public function setBillingInfo($billing_info)
+    {
+        $this->billing_info = $billing_info;
+        return $this;
+    }
+
+    /**
+     * @return \Recurly\Model\BillingInfo
+     */
+    public function getBillingInfo()
+    {
+        return $this->billing_info;
     }
 
     /**

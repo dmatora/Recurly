@@ -25,7 +25,8 @@ class Transactions extends Resource
 
         return $this->apiPost(
             'transactions',
-            $transaction
+            $transaction,
+            'Recurly\Model\Transaction'
         );
     }
 

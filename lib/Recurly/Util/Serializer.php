@@ -30,7 +30,7 @@ class Serializer
     public function serialize(ModelInterface $model)
     {
         $serializeVisitor = new SerializeVisitor();
-        return $serializeVisitor->visitModel($model)->saveXML();
+        return $serializeVisitor->serialize($model)->saveXML();
     }
 
 } 

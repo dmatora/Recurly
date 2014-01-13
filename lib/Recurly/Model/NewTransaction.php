@@ -26,7 +26,7 @@ class NewTransaction implements ModelInterface
             ],
             'attributes' => [
                 'account' => [
-                    'type' => 'Account',
+                    'type' => 'Recurly\Model\Account',
                 ],
                 'amount_in_cents' => [
                     'type' => 'integer',

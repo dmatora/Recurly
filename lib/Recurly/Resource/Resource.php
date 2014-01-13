@@ -35,7 +35,7 @@ abstract class Resource
         if (null !== $context) {
             return $this->serializer->deserialize($response, $context);
         }
-        
+
         return $response;
     }
 
@@ -44,13 +44,19 @@ abstract class Resource
      *
      * @param string         $suffix
      * @param ModelInterface $model
+     * @param string         $context
      *
      * @return bool
      */
-    protected function apiPost($suffix, ModelInterface $model)
+    protected function apiPost($suffix, ModelInterface $model, $context = null)
     {
         $xml = $this->serializer->serialize($model);
-        $this->client->post($suffix, $xml);
+        $response = $this->client->post($suffix, $xml);
+
+        if (null !== $context) {
+            return $this->serializer->deserialize($response, $context);
+        }
+
         return true;
     }
 } 
