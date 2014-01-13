@@ -23,13 +23,13 @@ class Accounts extends Resource
     /**
      * Gets a specified account
      *
-     * @param $id
+     * @param string $accountCode
      *
      * @return \Recurly\Model\Account
      */
-    public function get($id)
+    public function get($accountCode)
     {
-        $suffix  = sprintf('accounts/%s', $id);
+        $suffix  = sprintf('accounts/%s', $accountCode);
         $context = 'Recurly\Model\Account';
 
         return $this->_get($suffix, $context);
@@ -38,13 +38,13 @@ class Accounts extends Resource
     /**
      * Gets the billing info for a specified account
      *
-     * @param Account $account
+     * @param string $accountCode
      *
      * @return \Recurly\Model\BillingInfo
      */
-    public function getBillingInfo(Account $account)
+    public function getBillingInfo($accountCode)
     {
-        $suffix  = sprintf('accounts/%s/billing_info', $account->getAccountCode());
+        $suffix  = sprintf('accounts/%s/billing_info', $accountCode);
         $context = 'Recurly\Model\BillingInfo';
 
         return $this->_get($suffix, $context);
