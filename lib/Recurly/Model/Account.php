@@ -76,6 +76,9 @@ class Account implements ModelInterface
                 'created_at' => [
                     'type' => 'datetime',
                 ],
+                'billing_info' => [
+                    'type' => 'Recurly\Model\BillingInfo',
+                ],
             ],
         ];
     }

@@ -53,6 +53,9 @@ class BillingInfo implements ModelInterface
     public function getMapping()
     {
         return [
+            'properties' => [
+                'rootName' => 'billing_info',
+            ],
             'attributes' => [
                 'first_name' => [
                     'type' => 'string',
