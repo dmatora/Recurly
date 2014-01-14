@@ -46,12 +46,31 @@ abstract class Resource
      * @param ModelInterface $model
      * @param string         $context
      *
-     * @return bool
+     * @return mixed
      */
     protected function apiPost($suffix, ModelInterface $model, $context = null)
     {
         $xml = $this->serializer->serialize($model);
         $response = $this->client->post($suffix, $xml);
+
+        if (null !== $context) {
+            return $this->serializer->deserialize($response, $context);
+        }
+
+        return true;
+    }
+
+    /**
+     * Puts to the suffix
+     *
+     * @param string $suffix
+     * @param string $context
+     *
+     * @return mixed
+     */
+    protected function apiPut($suffix, $context = null)
+    {
+        $response = $this->client->put($suffix);
 
         if (null !== $context) {
             return $this->serializer->deserialize($response, $context);

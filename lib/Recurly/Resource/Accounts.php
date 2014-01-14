@@ -64,4 +64,19 @@ class Accounts extends Resource
 
         return $this->apiGet($suffix, $context);
     }
+
+    /**
+     * Gets the subscriptions for a specified account
+     *
+     * @param string $accountCode
+     *
+     * @return \Recurly\Model\Subscription[]
+     */
+    public function getSubscriptions($accountCode)
+    {
+        $suffix  = sprintf('accounts/%s/subscriptions', $accountCode);
+        $context = 'array<Recurly\Model\Subscription>';
+
+        return $this->apiGet($suffix, $context);
+    }
 } 
