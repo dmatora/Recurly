@@ -2,6 +2,10 @@ Recurly
 =======
 
 This is an attempt at a better Recurly API Client. This library is still in heavy development.
+	
+Installation
+------------
+Via composer, see packagist.
 
 Currently supported
 -------------------
@@ -9,19 +13,19 @@ Currently supported
 	- all accounts
 	- account detail
 	- account billing info
+	- account invoices (PDF's as well)
+	- account subscriptions
 	- all subscriptions
 	- subscription detail
 	- all coupons
 	- coupon detail
 - Creation of
 	- coupons
+	- transactions
+- Cancelling subscriptions
 - Recurly.js functionality
 	- signing a request
 	- fetching a subscription transaction
-	
-Installation
-------------
-Via composer, see packagist.
 
 Usage
 -----
