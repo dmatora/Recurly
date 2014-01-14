@@ -28,6 +28,8 @@ class Account implements ModelInterface
     protected $hosted_login_token;
     /** @var \DateTime */
     protected $created_at;
+    /** @var BillingInfo */
+    protected $billing_info;
 
     /**
      * Returns a mapping
@@ -37,41 +39,46 @@ class Account implements ModelInterface
     public function getMapping()
     {
         return [
-            'account_code' => [
-                'type' => 'string',
-            ],
-            'state' => [
-                'type' => 'string',
-            ],
-            'username' => [
-                'type' => 'string',
-            ],
-            'email' => [
-                'type' => 'string',
-            ],
-            'first_name' => [
-                'type' => 'string',
-            ],
-            'last_name' => [
-                'type' => 'string',
-            ],
-            'company_name' => [
-                'type' => 'string',
-            ],
-            'vat_number' => [
-                'type' => 'string',
-            ],
-            'address' => [
-                'type' => 'Recurly\Model\Address',
-            ],
-            'accept_language' => [
-                'type' => 'string',
-            ],
-            'hosted_login_token' => [
-                'type' => 'string',
-            ],
-            'created_at' => [
-                'type' => 'datetime',
+            'attributes' => [
+                'account_code' => [
+                    'type' => 'string',
+                ],
+                'state' => [
+                    'type' => 'string',
+                ],
+                'username' => [
+                    'type' => 'string',
+                ],
+                'email' => [
+                    'type' => 'string',
+                ],
+                'first_name' => [
+                    'type' => 'string',
+                ],
+                'last_name' => [
+                    'type' => 'string',
+                ],
+                'company_name' => [
+                    'type' => 'string',
+                ],
+                'vat_number' => [
+                    'type' => 'string',
+                ],
+                'address' => [
+                    'type' => 'Recurly\Model\Address',
+                ],
+                'accept_language' => [
+                    'type' => 'string',
+                ],
+                'hosted_login_token' => [
+                    'type' => 'string',
+                ],
+                'created_at' => [
+                    'type' => 'datetime',
+                ],
+                'billing_info' => [
+                    'type' => 'Recurly\Model\BillingInfo',
+                ],
             ],
         ];
     }
@@ -131,6 +138,25 @@ class Account implements ModelInterface
     public function getAddress()
     {
         return $this->address;
+    }
+
+    /**
+     * @param \Recurly\Model\BillingInfo $billing_info
+     *
+     * @return $this
+     */
+    public function setBillingInfo($billing_info)
+    {
+        $this->billing_info = $billing_info;
+        return $this;
+    }
+
+    /**
+     * @return \Recurly\Model\BillingInfo
+     */
+    public function getBillingInfo()
+    {
+        return $this->billing_info;
     }
 
     /**

@@ -37,9 +37,13 @@ class BillingInfo implements ModelInterface
     /** @var integer */
     protected $month;
     /** @var string */
+    protected $number;
+    /** @var string */
     protected $first_six;
     /** @var string */
     protected $last_four;
+    /** @var string */
+    protected $verification_value;
 
     /**
      * Returns a mapping
@@ -49,59 +53,70 @@ class BillingInfo implements ModelInterface
     public function getMapping()
     {
         return [
-            'first_name' => [
-                'type' => 'string',
+            'properties' => [
+                'rootName' => 'billing_info',
             ],
-            'last_name' => [
-                'type' => 'string',
-            ],
-            'company' => [
-                'type' => 'string',
-            ],
-            'address1' => [
-                'type' => 'string',
-            ],
-            'address2' => [
-                'type' => 'string',
-            ],
-            'city' => [
-                'type' => 'string',
-            ],
-            'state' => [
-                'type' => 'string',
-            ],
-            'zip' => [
-                'type' => 'string',
-            ],
-            'country' => [
-                'type' => 'string',
-            ],
-            'phone' => [
-                'type' => 'string',
-            ],
-            'vat_number' => [
-                'type' => 'string',
-            ],
-            'ip_address' => [
-                'type' => 'string',
-            ],
-            'ip_address_country' => [
-                'type' => 'string',
-            ],
-            'card_type' => [
-                'type' => 'string',
-            ],
-            'year' => [
-                'type' => 'integer',
-            ],
-            'month' => [
-                'type' => 'integer',
-            ],
-            'first_six' => [
-                'type' => 'string',
-            ],
-            'last_four' => [
-                'type' => 'string',
+            'attributes' => [
+                'first_name' => [
+                    'type' => 'string',
+                ],
+                'last_name' => [
+                    'type' => 'string',
+                ],
+                'company' => [
+                    'type' => 'string',
+                ],
+                'address1' => [
+                    'type' => 'string',
+                ],
+                'address2' => [
+                    'type' => 'string',
+                ],
+                'city' => [
+                    'type' => 'string',
+                ],
+                'state' => [
+                    'type' => 'string',
+                ],
+                'zip' => [
+                    'type' => 'string',
+                ],
+                'country' => [
+                    'type' => 'string',
+                ],
+                'phone' => [
+                    'type' => 'string',
+                ],
+                'vat_number' => [
+                    'type' => 'string',
+                ],
+                'ip_address' => [
+                    'type' => 'string',
+                ],
+                'ip_address_country' => [
+                    'type' => 'string',
+                ],
+                'card_type' => [
+                    'type' => 'string',
+                ],
+                'year' => [
+                    'type' => 'integer',
+                ],
+                'month' => [
+                    'type' => 'integer',
+                ],
+                'number' => [
+                    'type' => 'string',
+                ],
+                'first_six' => [
+                    'type' => 'string',
+                ],
+                'last_four' => [
+                    'type' => 'string',
+                ],
+                'verification_value' => [
+                    'type' => 'string',
+                ],
             ],
         ];
     }
@@ -354,6 +369,25 @@ class BillingInfo implements ModelInterface
     }
 
     /**
+     * @param string $number
+     *
+     * @return $this
+     */
+    public function setNumber($number)
+    {
+        $this->number = $number;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getNumber()
+    {
+        return $this->number;
+    }
+
+    /**
      * @param string $phone
      *
      * @return $this
@@ -408,6 +442,25 @@ class BillingInfo implements ModelInterface
     public function getVatNumber()
     {
         return $this->vat_number;
+    }
+
+    /**
+     * @param string $verification_value
+     *
+     * @return $this
+     */
+    public function setVerificationValue($verification_value)
+    {
+        $this->verification_value = $verification_value;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getVerificationValue()
+    {
+        return $this->verification_value;
     }
 
     /**

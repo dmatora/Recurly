@@ -17,11 +17,13 @@ class Plan implements ModelInterface
     public function getMapping()
     {
         return [
-            'plan_code' => [
-                'type' => 'string',
-            ],
-            'name' => [
-                'type' => 'string',
+            'attributes' => [
+                'plan_code' => [
+                    'type' => 'string',
+                ],
+                'name' => [
+                    'type' => 'string',
+                ],
             ],
         ];
     }

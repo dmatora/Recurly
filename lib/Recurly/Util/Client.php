@@ -61,6 +61,21 @@ class Client
     }
 
     /**
+     * Does PUT
+     *
+     * @param $suffix
+     *
+     * @return string
+     */
+    public function put($suffix)
+    {
+        $this->setHeaders([
+            'Content-Length' => 0,
+        ]);
+        return $this->call(self::PUT, $suffix);
+    }
+
+    /**
      * Does curl request to Recurly API
      *
      * @param string $verb

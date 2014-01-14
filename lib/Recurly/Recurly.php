@@ -4,8 +4,10 @@ namespace Recurly;
 
 use Recurly\Resource\Accounts;
 use Recurly\Resource\Coupons;
+use Recurly\Resource\Invoices;
 use Recurly\Resource\Js;
 use Recurly\Resource\Subscriptions;
+use Recurly\Resource\Transactions;
 use Recurly\Util\Client;
 
 /**
@@ -20,10 +22,14 @@ class Recurly
     public $accounts;
     /** @var Coupons */
     public $coupons;
+    /** @var Invoices */
+    public $invoices;
     /** @var Js */
     public $js;
     /** @var Subscriptions */
     public $subscriptions;
+    /** @var Transactions */
+    public $transactions;
 
     /**
      * Sets up the library's dependencies
@@ -39,8 +45,10 @@ class Recurly
 
         $this->accounts      = new Accounts($client);
         $this->coupons       = new Coupons($client);
+        $this->invoices      = new Invoices($client);
         $this->js            = new Js($client, $privateKey);
         $this->subscriptions = new Subscriptions($client);
+        $this->transactions  = new Transactions($client);
     }
 
 } 

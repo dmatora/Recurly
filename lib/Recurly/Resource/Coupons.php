@@ -14,7 +14,7 @@ class Coupons extends Resource
      */
     public function getAll()
     {
-        return $this->_get(
+        return $this->apiGet(
             'coupons',
             'array<Recurly\Model\Coupon>'
         );
@@ -29,7 +29,7 @@ class Coupons extends Resource
      */
     public function get($id)
     {
-        return $this->_get(
+        return $this->apiGet(
             sprintf('coupons/%s', $id),
             'Recurly\Model\Coupon'
         );
@@ -42,7 +42,7 @@ class Coupons extends Resource
      */
     public function create(Coupon $coupon)
     {
-        return $this->_post(
+        return $this->apiPost(
             'coupons',
             $coupon
         );

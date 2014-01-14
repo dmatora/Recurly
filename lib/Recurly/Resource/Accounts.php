@@ -17,7 +17,7 @@ class Accounts extends Resource
         $suffix  = 'accounts';
         $context = 'array<Recurly\Model\Account>';
 
-        return $this->_get($suffix, $context);
+        return $this->apiGet($suffix, $context);
     }
 
     /**
@@ -32,7 +32,7 @@ class Accounts extends Resource
         $suffix  = sprintf('accounts/%s', $accountCode);
         $context = 'Recurly\Model\Account';
 
-        return $this->_get($suffix, $context);
+        return $this->apiGet($suffix, $context);
     }
 
     /**
@@ -47,6 +47,36 @@ class Accounts extends Resource
         $suffix  = sprintf('accounts/%s/billing_info', $accountCode);
         $context = 'Recurly\Model\BillingInfo';
 
-        return $this->_get($suffix, $context);
+        return $this->apiGet($suffix, $context);
+    }
+
+    /**
+     * Gets the invoices for a specified account
+     *
+     * @param string $accountCode
+     *
+     * @return \Recurly\Model\Invoice[]
+     */
+    public function getInvoices($accountCode)
+    {
+        $suffix  = sprintf('accounts/%s/invoices', $accountCode);
+        $context = 'array<Recurly\Model\Invoice>';
+
+        return $this->apiGet($suffix, $context);
+    }
+
+    /**
+     * Gets the subscriptions for a specified account
+     *
+     * @param string $accountCode
+     *
+     * @return \Recurly\Model\Subscription[]
+     */
+    public function getSubscriptions($accountCode)
+    {
+        $suffix  = sprintf('accounts/%s/subscriptions', $accountCode);
+        $context = 'array<Recurly\Model\Subscription>';
+
+        return $this->apiGet($suffix, $context);
     }
 } 

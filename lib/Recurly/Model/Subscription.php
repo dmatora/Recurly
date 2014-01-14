@@ -43,50 +43,52 @@ class Subscription implements ModelInterface
     public function getMapping()
     {
         return [
-            'plan' => [
-                'type' => 'Recurly\Model\Plan',
-            ],
-            'uuid' => [
-                'type' => 'string',
-            ],
-            'state' => [
-                'type' => 'string',
-            ],
-            'unit_amount_in_cents' => [
-                'type' => 'string',
-            ],
-            'currency' => [
-                'type' => 'string',
-            ],
-            'quantity' => [
-                'type' => 'string',
-            ],
-            'activated_at' => [
-                'type' => 'datetime',
-            ],
-            'canceled_at' => [
-                'type' => 'datetime',
-            ],
-            'expires_at' => [
-                'type' => 'datetime',
-            ],
-            'total_billing_cycles' => [
-                'type' => 'string',
-            ],
-            'remaining_billing_cycles' => [
-                'type' => 'string',
-            ],
-            'current_period_started_at' => [
-                'type' => 'datetime',
-            ],
-            'current_period_ends_at' => [
-                'type' => 'datetime',
-            ],
-            'trial_started_at' => [
-                'type' => 'datetime',
-            ],
-            'trial_ends_at' => [
-                'type' => 'datetime',
+            'attributes' => [
+                'plan' => [
+                    'type' => 'Recurly\Model\Plan',
+                ],
+                'uuid' => [
+                    'type' => 'string',
+                ],
+                'state' => [
+                    'type' => 'string',
+                ],
+                'unit_amount_in_cents' => [
+                    'type' => 'string',
+                ],
+                'currency' => [
+                    'type' => 'string',
+                ],
+                'quantity' => [
+                    'type' => 'string',
+                ],
+                'activated_at' => [
+                    'type' => 'datetime',
+                ],
+                'canceled_at' => [
+                    'type' => 'datetime',
+                ],
+                'expires_at' => [
+                    'type' => 'datetime',
+                ],
+                'total_billing_cycles' => [
+                    'type' => 'string',
+                ],
+                'remaining_billing_cycles' => [
+                    'type' => 'string',
+                ],
+                'current_period_started_at' => [
+                    'type' => 'datetime',
+                ],
+                'current_period_ends_at' => [
+                    'type' => 'datetime',
+                ],
+                'trial_started_at' => [
+                    'type' => 'datetime',
+                ],
+                'trial_ends_at' => [
+                    'type' => 'datetime',
+                ],
             ],
         ];
     }

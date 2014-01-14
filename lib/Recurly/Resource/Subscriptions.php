@@ -15,21 +15,38 @@ class Subscriptions extends Resource
         $suffix  = 'subscriptions';
         $context = 'array<Recurly\Model\Subscription>';
 
-        return $this->_get($suffix, $context);
+        return $this->apiGet($suffix, $context);
     }
 
     /**
      * Gets a specified subscription
      *
-     * @param $id
+     * @param $uuid
      *
      * @return \Recurly\Model\Subscription
      */
-    public function get($id)
+    public function get($uuid)
     {
-        $suffix  = sprintf('subscriptions/%s', $id);
+        $suffix  = sprintf('subscriptions/%s', $uuid);
         $context = 'Recurly\Model\Subscription';
 
-        return $this->_get($suffix, $context);
+        return $this->apiGet($suffix, $context);
+    }
+
+
+    /**
+     * Cancels a specified subscription
+     *
+     * @param $uuid
+     *
+     * @return \Recurly\Model\Subscription
+     */
+    public function cancel($uuid)
+    {
+        $suffix  = sprintf('subscriptions/%s/cancel', $uuid);
+        $context = 'Recurly\Model\Subscription';
+
+        return $this->apiPut($suffix, $context);
+
     }
 } 
