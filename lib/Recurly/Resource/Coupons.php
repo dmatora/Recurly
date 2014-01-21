@@ -23,14 +23,14 @@ class Coupons extends Resource
     /**
      * Gets a specified account
      *
-     * @param $id
+     * @param $couponCode
      *
      * @return Coupon
      */
-    public function get($id)
+    public function get($couponCode)
     {
         return $this->apiGet(
-            sprintf('coupons/%s', $id),
+            sprintf('coupons/%s', $couponCode),
             'Recurly\Model\Coupon'
         );
     }

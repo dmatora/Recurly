@@ -456,6 +456,16 @@ class Plan implements ModelInterface
     }
 
     /**
+     * @param $currency
+     *
+     * @return int
+     */
+    public function getUnitAmount($currency)
+    {
+        return $this->unit_amount_in_cents[$currency] / 100;
+    }
+
+    /**
      * @param string $unit_name
      *
      * @return $this
