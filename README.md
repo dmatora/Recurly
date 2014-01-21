@@ -10,15 +10,10 @@ Via composer, see packagist.
 Currently supported
 -------------------
 - Fetching of
-	- all accounts
-	- account detail
-	- account billing info
-	- account invoices (PDF's as well)
-	- account subscriptions
-	- all subscriptions
-	- subscription detail
-	- all coupons
-	- coupon detail
+	- accounts (and their billing info, subscriptions and invoices)
+	- subscriptions
+	- coupons
+	- plans
 - Creation of
 	- coupons
 	- transactions
