@@ -5,6 +5,14 @@ namespace Recurly\Resource;
 class Invoices extends Resource
 {
 
+    public function get($number)
+    {
+        return $this->apiGet(
+            sprintf('invoices/%s', $number),
+            'Recurly\Model\Invoice'
+        );
+    }
+
     /**
      * Gets a PDF version of an invoice
      *

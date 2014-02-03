@@ -116,6 +116,8 @@ class Client
         $this->responseCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
         curl_close($ch);
 
+//        echo $this->response; exit;
+
         $this->verifyResponseCode();
 
         return $this->response;
@@ -178,7 +180,7 @@ class Client
             return true;
         } else {
             $element = simplexml_load_string($this->response);
-            $error   = (string)$element->description;
+            $error   = (string)$element->description ?: (string)$element->error;
             switch ($this->responseCode) {
                 case 400:
                     throw new Exc\BadRequestException($error, $this->responseCode);
