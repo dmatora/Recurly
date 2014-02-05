@@ -18,7 +18,8 @@ Currently supported
 	- coupons
 	- transactions
 	- subscriptions
-- Cancelling subscriptions
+- Edittion/Cancelling subscriptions
+- Redeeming coupons
 - Recurly.js functionality
 	- signing a request
 	- fetching a subscription transaction
