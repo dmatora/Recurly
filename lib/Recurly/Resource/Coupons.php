@@ -3,6 +3,7 @@
 namespace Recurly\Resource;
 
 use Recurly\Model\Coupon;
+use Recurly\Model\Redemption;
 
 class Coupons extends Resource
 {
@@ -45,6 +46,15 @@ class Coupons extends Resource
         return $this->apiPost(
             'coupons',
             $coupon
+        );
+    }
+
+    public function redeem($couponCode, Redemption $redeemCoupon)
+    {
+        return $this->apiPost(
+            sprintf('coupons/%s/redeem', $couponCode),
+            $redeemCoupon,
+            'Recurly\Model\Redemption'
         );
     }
 } 
