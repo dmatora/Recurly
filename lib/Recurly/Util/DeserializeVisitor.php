@@ -76,7 +76,7 @@ class DeserializeVisitor extends Visitor
                     call_user_func(
                         [
                             $model,
-                            'set' . preg_replace('/(^|_)([a-z])/e', 'strtoupper("\\2")', $variable),
+                            MethodHelper::getSetter($variable),
                         ],
                         $this->visitElement($element->$variable, $opts)
                     );
