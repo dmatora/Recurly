@@ -2,6 +2,9 @@
 
 namespace Recurly\Resource;
 
+use Recurly\Model\EditSubscription;
+use Recurly\Model\NewSubscription;
+
 class Subscriptions extends Resource
 {
 
@@ -33,6 +36,34 @@ class Subscriptions extends Resource
         return $this->apiGet($suffix, $context);
     }
 
+    /**
+     * @param NewSubscription $newSubscription
+     *
+     * @return \Recurly\Model\Subscription
+     */
+    public function create(NewSubscription $newSubscription)
+    {
+        return $this->apiPost(
+            'subscriptions',
+            $newSubscription,
+            'Recurly\Model\Subscription'
+        );
+    }
+
+    /**
+     * @param string           $uuid
+     * @param EditSubscription $editSubscription
+     *
+     * @return \Recurly\Model\Subscription
+     */
+    public function edit($uuid, EditSubscription $editSubscription)
+    {
+        return $this->apiPut(
+            sprintf('subscriptions/%s', $uuid),
+            $editSubscription,
+            'Recurly\Model\Subscription'
+        );
+    }
 
     /**
      * Cancels a specified subscription

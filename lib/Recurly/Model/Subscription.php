@@ -4,6 +4,8 @@ namespace Recurly\Model;
 
 class Subscription implements ModelInterface
 {
+    /** @var string */
+    protected $invoice;
     /** @var Plan */
     protected $plan;
     /** @var string */
@@ -44,6 +46,11 @@ class Subscription implements ModelInterface
     {
         return [
             'attributes' => [
+                'invoice' => [
+                    'type'          => 'string',
+                    'fromAttribute' => 'href',
+                    'regex'         => '/^.+\/(\d+)$/',
+                ],
                 'plan' => [
                     'type' => 'Recurly\Model\Plan',
                 ],
@@ -205,6 +212,25 @@ class Subscription implements ModelInterface
     public function getExpiresAt()
     {
         return $this->expires_at;
+    }
+
+    /**
+     * @param string $invoice
+     *
+     * @return $this
+     */
+    public function setInvoice($invoice)
+    {
+        $this->invoice = $invoice;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getInvoice()
+    {
+        return $this->invoice;
     }
 
     /**

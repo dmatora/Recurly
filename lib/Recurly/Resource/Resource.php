@@ -63,14 +63,15 @@ abstract class Resource
     /**
      * Puts to the suffix
      *
-     * @param string $suffix
-     * @param string $context
+     * @param string         $suffix
+     * @param ModelInterface $data
+     * @param string         $context
      *
      * @return mixed
      */
-    protected function apiPut($suffix, $context = null)
+    protected function apiPut($suffix, ModelInterface $data = null, $context = null)
     {
-        $response = $this->client->put($suffix);
+        $response = $this->client->put($suffix, $data);
 
         if (null !== $context) {
             return $this->serializer->deserialize($response, $context);

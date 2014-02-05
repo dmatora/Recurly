@@ -3,6 +3,7 @@
 namespace Recurly\Resource;
 
 use Recurly\Model\Coupon;
+use Recurly\Model\Redemption;
 
 class Coupons extends Resource
 {
@@ -23,14 +24,14 @@ class Coupons extends Resource
     /**
      * Gets a specified account
      *
-     * @param $id
+     * @param $couponCode
      *
      * @return Coupon
      */
-    public function get($id)
+    public function get($couponCode)
     {
         return $this->apiGet(
-            sprintf('coupons/%s', $id),
+            sprintf('coupons/%s', $couponCode),
             'Recurly\Model\Coupon'
         );
     }
@@ -45,6 +46,15 @@ class Coupons extends Resource
         return $this->apiPost(
             'coupons',
             $coupon
+        );
+    }
+
+    public function redeem($couponCode, Redemption $redeemCoupon)
+    {
+        return $this->apiPost(
+            sprintf('coupons/%s/redeem', $couponCode),
+            $redeemCoupon,
+            'Recurly\Model\Redemption'
         );
     }
 } 

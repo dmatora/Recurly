@@ -2,8 +2,6 @@
 
 namespace Recurly\Resource;
 
-use \Recurly\Model\Account;
-
 class Accounts extends Resource
 {
 

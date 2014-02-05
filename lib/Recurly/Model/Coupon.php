@@ -189,6 +189,11 @@ class Coupon implements ModelInterface
         return $this->discount_in_cents;
     }
 
+    public function getDiscount($currency)
+    {
+        return $this->getDiscountInCents()[$currency] / 100;
+    }
+
     /**
      * @param int $discount_percent
      *

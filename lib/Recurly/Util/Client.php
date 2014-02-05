@@ -50,8 +50,8 @@ class Client
     /**
      * Does POST
      *
-     * @param $suffix
-     * @param $data
+     * @param string $suffix
+     * @param string $data
      *
      * @return string
      */
@@ -61,18 +61,19 @@ class Client
     }
 
     /**
-     * Does PUT
+     * Does PUT (potentially with data)
      *
-     * @param $suffix
+     * @param string $suffix
+     * @param string $data
      *
      * @return string
      */
-    public function put($suffix)
+    public function put($suffix, $data = null)
     {
         $this->setHeaders([
             'Content-Length' => 0,
         ]);
-        return $this->call(self::PUT, $suffix);
+        return $this->call(self::PUT, $suffix, $data);
     }
 
     /**
@@ -115,6 +116,8 @@ class Client
         $this->response     = curl_exec($ch);
         $this->responseCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
         curl_close($ch);
+
+//        echo $this->response; exit;
 
         $this->verifyResponseCode();
 
@@ -178,7 +181,7 @@ class Client
             return true;
         } else {
             $element = simplexml_load_string($this->response);
-            $error   = (string)$element->description;
+            $error   = (string)$element->description ?: (string)$element->error;
             switch ($this->responseCode) {
                 case 400:
                     throw new Exc\BadRequestException($error, $this->responseCode);

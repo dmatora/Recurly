@@ -6,6 +6,7 @@ use Recurly\Resource\Accounts;
 use Recurly\Resource\Coupons;
 use Recurly\Resource\Invoices;
 use Recurly\Resource\Js;
+use Recurly\Resource\Plans;
 use Recurly\Resource\Subscriptions;
 use Recurly\Resource\Transactions;
 use Recurly\Util\Client;
@@ -47,6 +48,7 @@ class Recurly
         $this->coupons       = new Coupons($client);
         $this->invoices      = new Invoices($client);
         $this->js            = new Js($client, $privateKey);
+        $this->plans         = new Plans($client);
         $this->subscriptions = new Subscriptions($client);
         $this->transactions  = new Transactions($client);
     }
