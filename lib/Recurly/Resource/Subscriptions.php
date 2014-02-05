@@ -2,6 +2,7 @@
 
 namespace Recurly\Resource;
 
+use Recurly\Model\EditSubscription;
 use Recurly\Model\NewSubscription;
 
 class Subscriptions extends Resource
@@ -45,6 +46,21 @@ class Subscriptions extends Resource
         return $this->apiPost(
             'subscriptions',
             $newSubscription,
+            'Recurly\Model\Subscription'
+        );
+    }
+
+    /**
+     * @param string           $uuid
+     * @param EditSubscription $editSubscription
+     *
+     * @return \Recurly\Model\Subscription
+     */
+    public function edit($uuid, EditSubscription $editSubscription)
+    {
+        return $this->apiPut(
+            sprintf('subscriptions/%s', $uuid),
+            $editSubscription,
             'Recurly\Model\Subscription'
         );
     }

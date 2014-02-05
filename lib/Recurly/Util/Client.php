@@ -50,8 +50,8 @@ class Client
     /**
      * Does POST
      *
-     * @param $suffix
-     * @param $data
+     * @param string $suffix
+     * @param string $data
      *
      * @return string
      */
@@ -61,18 +61,19 @@ class Client
     }
 
     /**
-     * Does PUT
+     * Does PUT (potentially with data)
      *
-     * @param $suffix
+     * @param string $suffix
+     * @param string $data
      *
      * @return string
      */
-    public function put($suffix)
+    public function put($suffix, $data = null)
     {
         $this->setHeaders([
             'Content-Length' => 0,
         ]);
-        return $this->call(self::PUT, $suffix);
+        return $this->call(self::PUT, $suffix, $data);
     }
 
     /**
