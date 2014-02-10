@@ -70,8 +70,12 @@ class Client
      */
     public function put($suffix, $data = null)
     {
+        $contentLength = null !== $data
+            ? strlen($data)
+            : 0;
+
         $this->setHeaders([
-            'Content-Length' => 0,
+            'Content-Length' => $contentLength,
         ]);
         return $this->call(self::PUT, $suffix, $data);
     }

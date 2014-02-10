@@ -21,7 +21,7 @@ abstract class Resource
 
     /**
      * Talks to the API and gets an XML response
-     * If a context is given, deserializes the XML
+     * If a context is given, deserializes the response
      *
      * @param string $suffix
      * @param string $context
@@ -44,17 +44,17 @@ abstract class Resource
      *
      * @param string         $suffix
      * @param ModelInterface $model
-     * @param string         $context
+     * @param string         $returnContext
      *
      * @return mixed
      */
-    protected function apiPost($suffix, ModelInterface $model, $context = null)
+    protected function apiPost($suffix, ModelInterface $model, $returnContext = null)
     {
         $xml = $this->serializer->serialize($model);
         $response = $this->client->post($suffix, $xml);
 
-        if (null !== $context) {
-            return $this->serializer->deserialize($response, $context);
+        if (null !== $returnContext) {
+            return $this->serializer->deserialize($response, $returnContext);
         }
 
         return true;
@@ -62,19 +62,24 @@ abstract class Resource
 
     /**
      * Puts to the suffix
+     * If a context is given, deserializes the response
      *
      * @param string         $suffix
      * @param ModelInterface $data
-     * @param string         $context
+     * @param string         $returnContext
      *
      * @return mixed
      */
-    protected function apiPut($suffix, ModelInterface $data = null, $context = null)
+    protected function apiPut($suffix, ModelInterface $data = null, $returnContext = null)
     {
+        if (null !== $data) {
+            $data = $this->serializer->serialize($data);
+        }
+
         $response = $this->client->put($suffix, $data);
 
-        if (null !== $context) {
-            return $this->serializer->deserialize($response, $context);
+        if (null !== $returnContext) {
+            return $this->serializer->deserialize($response, $returnContext);
         }
 
         return true;
