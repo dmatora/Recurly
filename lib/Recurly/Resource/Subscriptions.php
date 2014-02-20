@@ -77,7 +77,7 @@ class Subscriptions extends Resource
         $suffix  = sprintf('subscriptions/%s/cancel', $uuid);
         $context = 'Recurly\Model\Subscription';
 
-        return $this->apiPut($suffix, $context);
+        return $this->apiPut($suffix, null, $context);
 
     }
 } 
