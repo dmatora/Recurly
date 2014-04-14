@@ -212,7 +212,12 @@ class Client
                     throw new Exc\PreconditionFailedException($error, $this->responseCode);
                     break;
                 case 422:
-                    throw new Exc\UnprocessableEntityException($error, $this->responseCode);
+                    $e = new Exc\UnprocessableEntityException('Some errors ocurred', $this->responseCode);
+                    foreach ($element->error as $error) {
+                        $field = substr($error['field'], strrpos($error['field'], '.') + 1);
+                        $e->addError(ucfirst($field).' '.$error);
+                    }
+                    throw $e;
                     break;
                 case 429:
                     throw new Exc\TooManyRequestsException($error, $this->responseCode);
