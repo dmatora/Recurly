@@ -4,6 +4,7 @@ namespace Recurly\Exception;
 
 class UnprocessableEntityException extends ClientException
 {
+    // test
     protected $errors;
 
     public function addError($error)
