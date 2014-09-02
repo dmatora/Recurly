@@ -40,12 +40,13 @@ class SerializeVisitor extends Visitor
 
         $mapping = $model->getMapping();
         foreach ($mapping['attributes'] as $variable => $options) {
-            $value = call_user_func(
-                [
-                    $model,
-                    'get' . preg_replace('/(^|_)([a-z])/e', 'strtoupper("\\2")', $variable),
-                ]
-            );
+            $getter = 'get'.preg_replace_callback(
+                    '/(^|_)([a-z])/',
+                    function($matches) {
+                        return $matches[2];
+                    }, $variable);
+
+            $value = call_user_func([$model, $getter]);
             $this->setChild($element, $value, $variable, $options);
         }
 
