@@ -24,6 +24,8 @@ class NewSubscription implements ModelInterface
     protected $total_billing_cycles;
     /** @var \DateTime */
     protected $first_renewal_date;
+    /** @var Addon[] */
+    protected $subscription_add_ons;
 
     /**
      * Returns a mapping
@@ -66,6 +68,10 @@ class NewSubscription implements ModelInterface
                 ],
                 'first_renewal_date' => [
                     'type' => 'datetime',
+                ],
+                'subscription_add_ons' => [
+                    'type' => 'array<Recurly\Model\Addon>',
+                    'key'  => 'subscription_add_on',
                 ],
             ],
         ];
@@ -183,6 +189,36 @@ class NewSubscription implements ModelInterface
     public function getQuantity()
     {
         return $this->quantity;
+    }
+
+    /**
+     * @param Addon[] $subscription_add_ons
+     *
+     * @return $this
+     */
+    public function setSubscriptionAddOns($subscription_add_ons)
+    {
+        $this->subscription_add_ons = $subscription_add_ons;
+        return $this;
+    }
+
+    /**
+     * @param Addon $addon
+     *
+     * @return $this
+     */
+    public function addSubscriptionAddon(Addon $addon)
+    {
+        $this->subscription_add_ons[] = $addon;
+        return $this;
+    }
+
+    /**
+     * @return Addon[]
+     */
+    public function getSubscriptionAddOns()
+    {
+        return $this->subscription_add_ons;
     }
 
     /**

@@ -19,6 +19,9 @@ class Addon implements ModelInterface
     public function getMapping()
     {
         return [
+            'properties' => [
+                'rootName' => 'subscription_add_on',
+            ],
             'attributes' => [
                 'add_on_code' => [
                     'type' => 'string',

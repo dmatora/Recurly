@@ -41,6 +41,7 @@ class EditSubscription implements ModelInterface
                 ],
                 'subscription_add_ons' => [
                     'type' => 'array<Recurly\Model\Addon>',
+                    'key'  => 'subscription_add_on',
                 ],
             ],
         ];
@@ -92,6 +93,17 @@ class EditSubscription implements ModelInterface
     public function setSubscriptionAddOns($subscription_add_ons)
     {
         $this->subscription_add_ons = $subscription_add_ons;
+        return $this;
+    }
+
+    /**
+     * @param Addon $addon
+     *
+     * @return $this
+     */
+    public function addSubscriptionAddon(Addon $addon)
+    {
+        $this->subscription_add_ons[] = $addon;
         return $this;
     }
 
