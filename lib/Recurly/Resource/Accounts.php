@@ -1,6 +1,7 @@
 <?php
 
 namespace Recurly\Resource;
+use Recurly\Model\Account;
 
 class Accounts extends Resource
 {
@@ -76,5 +77,13 @@ class Accounts extends Resource
         $context = 'array<Recurly\Model\Subscription>';
 
         return $this->apiGet($suffix, $context);
+    }
+
+    public function create(Account $account)
+    {
+        return $this->apiPost(
+            'accounts',
+            $account
+        );
     }
 } 
