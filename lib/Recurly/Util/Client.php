@@ -42,9 +42,9 @@ class Client
      *
      * @return string
      */
-    public function get($suffix)
+    public function get($suffix, $dump_response = false)
     {
-        return $this->call(self::GET, $suffix);
+        return $this->call(self::GET, $suffix, null, $dump_response);
     }
 
     /**
@@ -55,9 +55,9 @@ class Client
      *
      * @return string
      */
-    public function post($suffix, $data)
+    public function post($suffix, $data, $dump_response = false)
     {
-        return $this->call(self::POST, $suffix, $data);
+        return $this->call(self::POST, $suffix, $data, $dump_response);
     }
 
     /**
@@ -68,7 +68,7 @@ class Client
      *
      * @return string
      */
-    public function put($suffix, $data = null)
+    public function put($suffix, $data = null, $dump_response = false)
     {
         $contentLength = null !== $data
             ? strlen($data)
@@ -77,7 +77,7 @@ class Client
         $this->setHeaders([
             'Content-Length' => $contentLength,
         ]);
-        return $this->call(self::PUT, $suffix, $data);
+        return $this->call(self::PUT, $suffix, $data, $dump_response);
     }
 
     /**
@@ -89,7 +89,7 @@ class Client
      *
      * @return string
      */
-    public function call($verb, $suffix, $data = null)
+    public function call($verb, $suffix, $data = null, $dump_response = false)
     {
         $url = sprintf('https://%s.recurly.com/v2/%s', $this->subdomain, $suffix);
 
@@ -121,7 +121,9 @@ class Client
         $this->responseCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
         curl_close($ch);
 
-//        echo $this->response; exit;
+        if ( $dump_response ) {
+            die ($this->response);
+        }
 
         $this->verifyResponseCode();
 

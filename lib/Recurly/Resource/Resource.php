@@ -28,9 +28,9 @@ abstract class Resource
      *
      * @return mixed
      */
-    protected function apiGet($suffix, $context = null)
+    protected function apiGet($suffix, $context = null, $dump_response = false)
     {
-        $response = $this->client->get($suffix);
+        $response = $this->client->get($suffix, $dump_response);
 
         if (null !== $context) {
             return $this->serializer->deserialize($response, $context);
@@ -48,10 +48,10 @@ abstract class Resource
      *
      * @return mixed
      */
-    protected function apiPost($suffix, ModelInterface $model, $returnContext = null)
+    protected function apiPost($suffix, ModelInterface $model, $returnContext = null, $dump_response = false)
     {
         $xml = $this->serializer->serialize($model);
-        $response = $this->client->post($suffix, $xml);
+        $response = $this->client->post($suffix, $xml, $dump_response);
 
         if (null !== $returnContext) {
             return $this->serializer->deserialize($response, $returnContext);
@@ -70,13 +70,13 @@ abstract class Resource
      *
      * @return mixed
      */
-    protected function apiPut($suffix, ModelInterface $data = null, $returnContext = null)
+    protected function apiPut($suffix, ModelInterface $data = null, $returnContext = null, $dump_response = false)
     {
         if (null !== $data) {
             $data = $this->serializer->serialize($data);
         }
 
-        $response = $this->client->put($suffix, $data);
+        $response = $this->client->put($suffix, $data, $dump_response);
 
         if (null !== $returnContext) {
             return $this->serializer->deserialize($response, $returnContext);
